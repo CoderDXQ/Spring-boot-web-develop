@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!-- 导入thymeleaf的名称空间 可以进行语法提示-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>成功！</h1>
+    <!-- th:text 将div里面的文本内容设置为其他-->
+    <div id="div01" class="myDiv" th:id="${hello}" th:class="${hello}"  th:text="${hello}">这是显示欢迎信息</div>
+<hr/>
+    <div th:text="${hello}"></div>
+    <div th:utext="${hello}"></div>
+<hr/>
+    <h4 th:text="${user}" th:each="user:${users}"></h4>
+
+<hr/>
+
+    <!-- 双中括号可以转义特殊字符 -->
+<h4>
+    <span th:each="user:${users}"> [[${user}]] </span>
+</h4>
+
+</body>
+</html>
