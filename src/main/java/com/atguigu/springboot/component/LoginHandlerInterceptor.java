@@ -11,7 +11,7 @@ public class LoginHandlerInterceptor implements HandlerInterceptor {
     /**
      *这个拦截器用来进行登陆检查
      */
-    @Override
+    @Override //preHandle是在进行post,push,put,get等之前的处理
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         Object user = request.getSession().getAttribute("loginUser");
         if(user==null){

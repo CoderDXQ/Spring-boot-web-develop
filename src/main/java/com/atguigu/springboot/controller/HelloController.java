@@ -16,12 +16,12 @@ public class HelloController {
 //    }
 
     @ResponseBody
-    @RequestMapping("/hello")
+    @RequestMapping("/hello") //对url的地址后面的东西进行映射，映射到下面具体的某个函数
     public String hello(){
         return "Hello World";
     }
 
-    @RequestMapping("/success")
+    @RequestMapping("/success") //对url的地址后面的东西进行映射，映射到下面具体的某个函数
     public String success(Map<String,Object> map){
 
         //classpath:/template/success.html
