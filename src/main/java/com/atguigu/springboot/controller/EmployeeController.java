@@ -1,6 +1,8 @@
 package com.atguigu.springboot.controller;
 
+import com.atguigu.springboot.dao.DepartmentDao;
 import com.atguigu.springboot.dao.EmployeeDao;
+import com.atguigu.springboot.entities.Department;
 import com.atguigu.springboot.entities.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,9 @@ public class EmployeeController {
     @Autowired
     EmployeeDao employeeDao;//装配一个数据库模块
 
+    @Autowired
+    DepartmentDao departmentDao;
+
     //查询所有员工返回列表页面
     @GetMapping("/emps")
     public String list(Model model){
@@ -24,8 +29,14 @@ public class EmployeeController {
         //thymeleaf默认就会拼串
         //classpath:/templates/xxxx.html
         return "emp/list";
-
-
     }
 
+    //来到员工添加页面
+    @GetMapping("/emp")
+    public String toAddPage(Model model){
+        //来到添加页面
+        Collection<Department> departments = departmentDao.getDepartments();
+        model.addAttribute("depts",departments);
+        return "emp/add";
+    }
 }
