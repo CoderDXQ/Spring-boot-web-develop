@@ -12,7 +12,7 @@ import java.util.Collection;
 @Controller
 public class EmployeeController {
     @Autowired
-    EmployeeDao employeeDao;
+    EmployeeDao employeeDao;//装配一个数据库模块
 
     //查询所有员工返回列表页面
     @GetMapping("/emps")
