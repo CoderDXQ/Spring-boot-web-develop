@@ -1,6 +1,5 @@
 package com.atguigu.springboot.config;
 
-import com.atguigu.springboot.component.LoginHandlerInterceptor;
 import com.atguigu.springboot.component.MyLocaleResolver;
 import org.springframework.boot.web.server.ConfigurableWebServerFactory;
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
@@ -55,15 +54,15 @@ public class MyMvcConfig implements WebMvcConfigurer {
                // super.addInterceptors(registry);
                 // 静态资源；*.css *.js
                 //Spring Boot已经做好了静态资源映射
-                registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
-                        .excludePathPatterns("/index.html","/","/user/login","login.html","/login","/asserts/**");
+//                registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
+//                        .excludePathPatterns("/index.html","/","/user/login","login.html","/login","/asserts/**");
 
             }
 
             @Override
             public void addResourceHandlers(ResourceHandlerRegistry registry) {
-                registry.addResourceHandler("/**")
-                        .addResourceLocations("classpath:/static/");
+//                registry.addResourceHandler("/**")
+//                        .addResourceLocations("classpath:/static/");
             }
 
         };//匿名内部类必须有分号
