@@ -20,12 +20,31 @@
     </properties>
 
     <dependencies>
-        <!-- 引入web模块 -->
+        <!-- 引入web模块 可以在pom.xml文件里右键Diagrams分析依赖，然后再依赖图中操纵依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <artifactId>spring-boot-starter-tomcat</artifactId>-->
+<!--                    <groupId>org.springframework.boot</groupId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
         </dependency>
 
+        <!-- 引入其他的Servlet容器 Jetty支持长连接 Undertow不支持JSP -->
+        <!-- 每次更改pom.xml之后都要在Maven里刷新一下，如果更改后还是用Tomcat启动服务说明没有在Maven中刷新 -->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-jetty</artifactId>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-undertow</artifactId>-->
+<!--        </dependency>-->
+
+        <!-- 引入模板引擎 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
