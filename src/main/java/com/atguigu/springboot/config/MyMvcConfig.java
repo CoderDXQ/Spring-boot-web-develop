@@ -1,8 +1,6 @@
 package com.atguigu.springboot.config;
 
 import com.atguigu.springboot.component.MyLocaleResolver;
-import org.springframework.boot.web.server.ConfigurableWebServerFactory;
-import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.LocaleResolver;
@@ -14,18 +12,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 //@EnableWebMvc //这个注解可以全面接管Spring MVC，然后就不能自动访问静态资源下的index.html
 @Configuration
 public class MyMvcConfig implements WebMvcConfigurer {
-
-    //配置嵌入式容器
-//Spring Boot2.0以上版本使用WebServerFactoryCustomizer接口替换EmbeddedServletContainerCustomizer组件完成对嵌入式Servlet容器的配置
-    @Bean//注册组件
-    public WebServerFactoryCustomizer<ConfigurableWebServerFactory> webServerFactoryCustomizer(){
-        return new WebServerFactoryCustomizer<ConfigurableWebServerFactory>() {
-            @Override
-            public void customize(ConfigurableWebServerFactory factory) {
-                factory.setPort(8083);
-            }
-        };
-    }
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
